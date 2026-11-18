@@ -557,8 +557,8 @@ function walkIn(){if(ph!=='PAPER_AIRPLANE')return;{const bs=$('#boy'),gs=$('#gir
  later(enterWh,4300)}
 function enterWh(){if(ph!=='PAPER_AIRPLANE')return;const k=$('#wblk');k.classList.add('on');sfx('click');
  later(()=>{wk.forEach(a=>a.cancel());wk=[];document.body.classList.add('wi');$('#wh').className='a';unf=false;litT=0;const q=$('#pq');q.getAnimations().forEach(a=>a.cancel());q.classList.remove('hot');q.style.display='block';darkScene();k.classList.remove('on')},900)}
-const LTX=['TO. H','','소중한 장성호 생일 매우매우 많~~~이 축하해♡♡','가방 사주고 싶어서 일찌 사놨는뎅','애기가 그 사이 가방을 샀더라고~ 뜨으으악ㅋㅋ','남자 가방을 처음 골라봐서 영 모르겠어서..','걍 애정 가득한 마음으로 받아줌 좋겠오 ^^','다양한 가방으로 패피가 되도록행~^^','','모든 행운이 애기에게 오기를! 조만간 로또 될꺼야!! 화이팅!!!','','이제 마지막 장소로 이동해줘','"Our First Outdoor PUKA Spot ❤️"','ㅡHint ','','From. S'];
-function buildLetter(){const L=LTX,el=$('#lt');el.innerHTML='';chars=[];let a=0;L.forEach((ln,i)=>{(window.Intl&&Intl.Segmenter?[...new Intl.Segmenter().segment(ln)].map(x=>x.segment):[...ln]).forEach(ch=>{const s=document.createElement('span');s.className=(i===11||i===12)?'c hl big':'c';s.textContent=ch;el.appendChild(s);chars.push({s,at:a});a+=i===L.length-1?340:70});if(i===13){const cb=document.createElement('button');cb.type='button';cb.className='c cam';cb.textContent='📷';cb.onclick=e=>{e.stopPropagation();showPlace()};el.appendChild(cb);chars.push({s:cb,at:a});a+=70}el.appendChild(document.createElement('br'));a+=i===L.length-1?0:100});typeT=0;typed=0}
+const LTX=['TO. H','','소중한 장성호 생일 매우매우 많~~~이 축하해♡♡','가방 사주고 싶어서 일찍 사놨는뎅','애기가 그 사이 가방을 샀더라고~ 뜨으으악ㅋㅋ','남자 가방을 처음 골라봐서 영 모르겠어서..','걍 애정 가득한 마음으로 받아줌 좋겠오 ^^','다양한 가방으로 시흥의 패션피플이 되도록행~^^','','모든 행운이 애기에게 오기를! 조만간 로또 될꺼야!! 화이팅!!!','','이제 마지막 장소로 이동해줘','"Our First Outdoor PUKA Spot ❤️"','ㅡHint ','','From. S'];
+function buildLetter(){const L=LTX,el=$('#lt');el.innerHTML='';chars=[];let a=0;L.forEach((ln,i)=>{(window.Intl&&Intl.Segmenter?[...new Intl.Segmenter().segment(ln)].map(x=>x.segment):[...ln]).forEach(ch=>{const s=document.createElement('span');s.className=(i===11||i===12)?'c hl big'+(i===12?' pk':''):'c';s.textContent=ch;el.appendChild(s);chars.push({s,at:a});a+=i===L.length-1?340:70});if(i===13){const cb=document.createElement('button');cb.type='button';cb.className='c cam';cb.textContent='📷';cb.onclick=e=>{e.stopPropagation();showPlace()};el.appendChild(cb);chars.push({s:cb,at:a});a+=70}el.appendChild(document.createElement('br'));a+=i===L.length-1?0:100});typeT=0;typed=0}
 function showPlace(){if(ph!=='COMPLETE')return;sfx('pop');$('#place').classList.add('on');try{const v=$('#hvid');v.muted=true;v.currentTime=0;const q=v.play();if(q&&q.catch)q.catch(()=>{})}catch(_){}}
 /* 후레쉬 */
 function darkScene(){ph='DARK_FLASHLIGHT';lit=false;const d=$('#dark');d.className='on';d.style.setProperty('--rr','.1px');
@@ -620,8 +620,8 @@ async function letterBlob(){
  x.save();x.shadowColor='#0006';x.shadowBlur=24;x.shadowOffsetY=8;x.fill();x.restore();
  x.textBaseline='alphabetic';let y=M+10,ly=0;
  rows.forEach(r=>{if(!r.t){y+=r.h;return}x.font=F(r.fs);const w=x.measureText(r.t).width;
-  if(r.big){x.fillStyle='rgba(255,224,50,.75)';x.save();x.translate(M-8,y+r.fs*.08);x.rotate(-.004);x.fillRect(0,r.fs*.12,w+22,r.fs*.9);x.restore()}
-  x.fillStyle=r.big?'#2a160c':'#3a2a20';x.fillText(r.t,M,y+r.fs*.95);
+  if(r.big){x.fillStyle=r.i===12?'rgba(255,240,247,.97)':'rgba(255,224,50,.75)';x.save();x.translate(M-8,y+r.fs*.08);x.rotate(-.004);x.fillRect(0,r.fs*.12,w+22,r.fs*.9);x.restore()}
+  x.fillStyle=r.big?(r.i===12?'#e60f6e':'#2a160c'):'#3a2a20';x.fillText(r.t,M,y+r.fs*.95);
   if(r.i===13){x.font=F(r.fs);x.fillText('📷',M+w,y+r.fs*.95)}
   y+=r.h;ly=y});
  return new Promise(r=>c.toBlob(r,'image/png'))}
@@ -1034,5 +1034,6 @@ background:repeating-linear-gradient(90deg,#ffffffd0 0 .28cqw,#0000 .28cqw .5cqw
 #gt2 .gd i{width:3cqw!important;height:3cqw!important;border:0!important;border-radius:0!important;background:#ffffff30!important;clip-path:polygon(50% 0,62% 36%,100% 38%,70% 60%,80% 100%,50% 76%,20% 100%,30% 60%,0 38%,38% 36%);box-shadow:none!important}
 #gt2 .gd i.f{background:radial-gradient(circle at 40% 30%,#fffbd0,#ffd23f 50%,#ff9d00)!important;scale:1.2!important;filter:drop-shadow(0 0 .7cqw #ffd23f)}
 #gt2 small{background:#ffffff1f;border-radius:2cqw;padding:.3cqw 1.8cqw;font-size:1.9cqw!important}
+.c.hl.pk{color:#e60f6e!important;background:linear-gradient(transparent 30%,#fffafc 30%,#ffe6f1 94%,transparent 94%)!important;text-shadow:none}
 </style>
 </body></html>
